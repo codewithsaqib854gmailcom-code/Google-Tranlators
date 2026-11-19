@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Text and Document Translators</title>
+  <meta name="description" content="Global Text and Document Translators - translate text, voice and documents online between 100+ languages.">
+  <meta name="keywords" content="global text translator, document translator, voice translator, PDF translator, DOCX translator, free online translator">
+  <meta name="theme-color" content="#1a73e8">
+  <meta property="og:title" content="Global Text and Document Translators">
+  <meta property="og:description" content="Free text, voice and document translation in 100+ languages.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Global Text and Document Translators">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Global Text and Document Translators">
+  <meta name="twitter:description" content="Free text, voice and document translation in 100+ languages.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Global Text and Document Translators">
+  <!-- Add the official AdSense script here only after an AdSense account provides a real publisher ID. -->
+  <link rel="canonical" href="https://aesthetic-pdf-462908.netlify.app/">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.0/tesseract.min.js" defer></script>
+  <script src="app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Global Text and Document Translators",
+    "alternateName": "Global Text and Document Translator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Translate text, spoken voice and documents in more than 100 languages.",
+    "featureList": "Text translation, voice translation, PDF translation, DOCX translation, TXT translation, image text translation",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Global Translator home">
+      <span class="logo" aria-hidden="true">T</span>
+      <span>Global Text and Document Translators</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Global Text and Document Translators</h1>
+      <p>Free text, voice and document translation in 100+ languages</p>
+    </section>
+
+    <div class="tabs" role="tablist" aria-label="Translation type">
+      <button class="tab active" id="textTab" type="button" role="tab" aria-selected="true">Text translation</button>
+      <button class="tab" id="fileTab" type="button" role="tab" aria-selected="false">File translation</button>
+    </div>
+
+    <section class="workspace" aria-label="Translation workspace">
+      <div id="textView">
+        <div class="language-bar">
+          <select id="fromLang" aria-label="Translate from"></select>
+          <button class="swap" id="swapBtn" type="button" title="Swap languages" aria-label="Swap languages">⇄</button>
+          <select id="toLang" aria-label="Translate to"></select>
+        </div>
+        <div class="panels">
+          <div class="panel">
+            <textarea id="sourceText" maxlength="5000" aria-label="Text to translate" placeholder="Enter text"></textarea>
+            <button class="icon-btn voice-mic mic-btn" id="micBtn" type="button" title="Speak" aria-label="Speak text">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 15.2a3.2 3.2 0 0 0 3.2-3.2V6.3a3.2 3.2 0 1 0-6.4 0V12a3.2 3.2 0 0 0 3.2 3.2Z"/>
+                <path d="M18.1 11.2a1 1 0 0 0-2 0 4.1 4.1 0 0 1-8.2 0 1 1 0 0 0-2 0 6.1 6.1 0 0 0 5.1 6v2.1H8.8a1 1 0 1 0 0 2h6.4a1 1 0 1 0 0-2H13v-2.1a6.1 6.1 0 0 0 5.1-6Z"/>
+              </svg>
+            </button>
+            <div class="panel-footer">
+              <div class="footer-actions">
+                <button class="icon-btn" id="clearBtn" type="button" title="Clear" aria-label="Clear text">⌫</button>
+              </div>
+              <span class="char-count" id="charCount">0 / 5000</span>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="output placeholder" id="resultText" aria-live="polite">Translation</div>
+            <div class="panel-footer">
+              <span></span>
+              <div class="footer-actions">
+                <button class="icon-btn" id="copyBtn" type="button" title="Copy translation" aria-label="Copy translation">⧉</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="translate-btn" id="translateBtn" type="button">Translate</button>
+      </div>
+
+      <div class="file-view" id="fileView">
+        <label class="upload" for="fileInput">
+          <div>
+            <div class="upload-icon" aria-hidden="true">⬆</div>
+            <h3 id="uploadTitle">Upload a document</h3>
+            <p>PDF, DOCX, TXT, RTF, HTML, CSV, XLSX, PPTX, JSON, MD · max 15 MB</p>
+          </div>
+        </label>
+        <input id="fileInput" type="file" accept=".txt,.pdf,.docx,.rtf,.html,.htm,.csv,.xlsx,.xls,.pptx,.json,.md,.png,.jpg,.jpeg,.webp" hidden>
+        <div class="file-controls">
+          <select id="fileLang" aria-label="Translate file to"></select>
+          <button class="secondary-btn primary" id="translateFileBtn" type="button" disabled>Translate file</button>
+          <select id="downloadFormat" aria-label="Download format">
+            <option value="txt">Download TXT</option>
+            <option value="html">Download HTML</option>
+            <option value="pdf">Download PDF</option>
+          </select>
+          <button class="secondary-btn" id="downloadBtn" type="button" disabled>Download</button>
+          <span class="file-status" id="fileStatus">No file selected</span>
+        </div>
+        <pre class="file-preview" id="filePreview" hidden></pre>
+      </div>
+    </section>
+
+    <div id="ad-space" aria-label="Advertisement"></div>
+
+    <section class="features" aria-label="Translator features">
+      <article class="feature"><b>100+ languages</b><span>Use Global Text and Document Translators for text, voice and document translation worldwide.</span></article>
+      <article class="feature"><b>Document support</b><span>Read TXT, PDF and DOCX files and download their translated text.</span></article>
+      <article class="feature"><b>Responsive & private</b><span>Works on mobile and desktop. File text is processed in your browser and translation request.</span></article>
+    </section>
+
+    <section class="info-section" aria-labelledby="how-it-works">
+      <h2 id="how-it-works">A simple way to translate text and documents</h2>
+      <p>Choose the language you are translating from and the language you need. Type or dictate text, then select Translate to see the result. For a document, choose File translation, upload a supported file, and download the translated text in your preferred format.</p>
+      <h3>Supported file types and limits</h3>
+      <p>The translator can extract text from common document, spreadsheet, presentation, and image formats. Files are limited to 15 MB. Scanned documents and images may need OCR, and complex layouts, tables, handwriting, or embedded graphics may not be preserved. Downloads contain translated text rather than the original document's full formatting.</p>
+      <h3>Translation quality and privacy</h3>
+      <p>Translations are generated by third-party translation services and may contain errors. Review important or professional translations before relying on them. Extracted text is sent to the selected translation service to produce a result; do not upload confidential or sensitive material.</p>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <footer class="site-footer">
+    <span>© 2026 Global Text and Document Translators</span>
+    <nav aria-label="Footer">
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/about.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/privacy-policy.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/terms.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/disclaimer.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://aesthetic-pdf-462908.netlify.app/contact.html</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>
